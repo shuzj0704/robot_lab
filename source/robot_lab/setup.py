@@ -15,16 +15,15 @@ EXTENSION_TOML_DATA = toml.load(os.path.join(EXTENSION_PATH, "config", "extensio
 
 # Minimum dependencies required prior to installation
 INSTALL_REQUIRES = [
-    # base
+    # NOTE: Add dependencies
     "psutil",
-    "colorama",
-    "xacrodoc",
-    # amp
-    "numpy",
-    "pandas",
-    "pinocchio",
-    # rl
-    "cusrl[all]",
+    # "lxml",
+    # "transformations",
+    # "pybullet",
+    # "colorama",
+    # "pyquaternion",
+    "pyqt5",
+    "pin",
 ]
 
 # Installation operation
@@ -44,10 +43,8 @@ setup(
     classifiers=[
         "Natural Language :: English",
         "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Isaac Sim :: 4.5.0",
-        "Isaac Sim :: 5.0.0",
-        "Isaac Sim :: 5.1.0",
+        "Isaac Sim :: 2023.1.1",
+        "Isaac Sim :: 4.0.0",
     ],
     zip_safe=False,
 )
