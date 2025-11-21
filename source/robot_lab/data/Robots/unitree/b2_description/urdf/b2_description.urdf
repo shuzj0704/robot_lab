@@ -271,47 +271,8 @@
     <parent link="FL_thigh" />
     <child link="FL_calf_rotor" />
   </joint>
+  
   <link name="FL_foot">
-    <visual>
-      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-      <cylinder length="0.035" radius="0.1075"/>
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
-    </visual>
-    <visual>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-        <cylinder length="0.035" radius="0.1075" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-    </collision>
-    <inertial> <!-- wheel-->
-      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
-      <mass value="0.537" />
-      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
-    </inertial>
-    <inertial> <!-- connect-->
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <mass value="0.623" />
-      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
-    </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
       <geometry>
@@ -324,6 +285,52 @@
     <parent link="FL_calf" />
     <child link="FL_foot" />
   </joint>
+
+  <link name="FL_wheel">
+  <!-- fffffffffffffffffffflllllllllllllllllllllll -->
+    <visual>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.07 0.07 -0.03" rpy="1.57 0.7 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_connect.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 0.0186 -0.024" rpy="1.57 0 0" />
+      <mass value="1.16" />
+      <inertia ixx="0.00253" ixy="0" ixz="0" iyy="0.0035" iyz="0" izz="0.00261" />
+    </inertial>
+
+  </link>
+  <joint name="FL_wheel_to_FL_foot_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="FL_foot"/>
+    <child link="FL_wheel"/>
+  </joint>
+
   <link name="FR_hip">
     <inertial>
       <origin xyz="-0.009305 0.010228 0.000264" rpy="0 0 0" />
@@ -478,46 +485,6 @@
     <child link="FR_calf_rotor" />
   </joint>
   <link name="FR_foot">
-    <visual>
-      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-      <cylinder length="0.035" radius="0.1075"/>
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
-    </visual>
-    <visual>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-        <cylinder length="0.035" radius="0.1075" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-    </collision>
-    <inertial> <!-- wheel-->
-      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
-      <mass value="0.537" />
-      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
-    </inertial>
-    <inertial> <!-- connect-->
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <mass value="0.623" />
-      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
-    </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
       <geometry>
@@ -529,6 +496,50 @@
     <origin xyz="0 0 -0.35" rpy="0 0 0" />
     <parent link="FR_calf" />
     <child link="FR_foot" />
+  </joint>
+  <link name="FR_wheel">
+  <!-- fffffffffffffffffffflllllllllllllllllllllll -->
+    <visual>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.07 0.07 -0.03" rpy="1.57 0.7 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_connect.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 0.0186 -0.024" rpy="1.57 0 0" />
+      <mass value="1.16" />
+      <inertia ixx="0.00253" ixy="0" ixz="0" iyy="0.0035" iyz="0" izz="0.00261" />
+    </inertial>
+
+  </link>
+  <joint name="FR_wheel_to_FR_foot_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 -1.43 3.1415"/>
+    <parent link="FR_foot"/>
+    <child link="FR_wheel"/>
   </joint>
   <link name="RL_hip">
     <inertial>
@@ -684,46 +695,6 @@
     <child link="RL_calf_rotor" />
   </joint>
   <link name="RL_foot">
-    <visual>
-      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-      <cylinder length="0.035" radius="0.1075"/>
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
-    </visual>
-    <visual>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-        <cylinder length="0.035" radius="0.1075" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-    </collision>
-    <inertial> <!-- wheel-->
-      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
-      <mass value="0.537" />
-      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
-    </inertial>
-    <inertial> <!-- connect-->
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <mass value="0.623" />
-      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
-    </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
       <geometry>
@@ -735,6 +706,50 @@
     <origin xyz="0 0 -0.35" rpy="0 0 0" />
     <parent link="RL_calf" />
     <child link="RL_foot" />
+  </joint>
+  <link name="RL_wheel">
+  <!-- fffffffffffffffffffflllllllllllllllllllllll -->
+    <visual>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.07 0.07 -0.03" rpy="1.57 0.7 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_connect.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 0.0186 -0.024" rpy="1.57 0 0" />
+      <mass value="1.16" />
+      <inertia ixx="0.00253" ixy="0" ixz="0" iyy="0.0035" iyz="0" izz="0.00261" />
+    </inertial>
+
+  </link>
+  <joint name="RL_wheel_to_RL_foot_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="RL_foot"/>
+    <child link="RL_wheel"/>
   </joint>
   <link name="RR_hip">
     <inertial>
@@ -890,46 +905,6 @@
     <child link="RR_calf_rotor" />
   </joint>
   <link name="RR_foot">
-    <visual>
-      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-      <cylinder length="0.035" radius="0.1075"/>
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
-    </visual>
-    <visual>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
-      <geometry>
-        <cylinder length="0.035" radius="0.1075" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <geometry>
-        <box size="0.07 0.065 0.035" />
-      </geometry>
-    </collision>
-    <inertial> <!-- wheel-->
-      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
-      <mass value="0.537" />
-      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
-    </inertial>
-    <inertial> <!-- connect-->
-      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
-      <mass value="0.623" />
-      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
-    </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
       <geometry>
@@ -941,6 +916,50 @@
     <origin xyz="0 -8.6984E-05 -0.35" rpy="0 0 0" />
     <parent link="RR_calf" />
     <child link="RR_foot" />
+  </joint>
+  <link name="RR_wheel">
+  <!-- fffffffffffffffffffflllllllllllllllllllllll -->
+    <visual>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.07 0.07 -0.03" rpy="1.57 0.7 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_connect.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.1311 0.035 -0.1315" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://unitree/b2_description/meshes/foot_wheel.STL" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 0.0186 -0.024" rpy="1.57 0 0" />
+      <mass value="1.16" />
+      <inertia ixx="0.00253" ixy="0" ixz="0" iyy="0.0035" iyz="0" izz="0.00261" />
+    </inertial>
+
+  </link>
+  <joint name="RR_wheel_to_RR_foot_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 -1.43 3.1415"/>
+    <parent link="RR_foot"/>
+    <child link="RR_wheel"/>
   </joint>
   <link name="f_oc_link">
     <inertial>
