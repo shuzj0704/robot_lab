@@ -217,7 +217,9 @@
       <geometry>
         <mesh filename="package://b2_description/meshes/FL_calf.dae" />
       </geometry>
-      <material name="磨砂铝合金_018-effect"><color rgba="0.74876 0.74876 0.74876 1" /></material><material name="材质_005-effect"><color rgba="0.07323546 0.07323546 0.07323546 1" /></material></visual>
+      <material name="磨砂铝合金_018-effect"><color rgba="0.74876 0.74876 0.74876 1" /></material>
+      <material name="材质_005-effect"><color rgba="0.07323546 0.07323546 0.07323546 1" /></material>
+    </visual>
     <collision>
       <origin rpy="0 1.2 0" xyz="-0.002 0 -0.03" />
       <geometry>
@@ -270,10 +272,45 @@
     <child link="FL_calf_rotor" />
   </joint>
   <link name="FL_foot">
-    <inertial>
-      <origin xyz="-0.006511 0 -0.010144" rpy="0 0 0" />
-      <mass value="0.126" />
-      <inertia ixx="3.8E-05" ixy="0" ixz="1.1E-05" iyy="4.1E-05" iyz="0" izz="4.2E-05" />
+    <visual>
+      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+      <cylinder length="0.035" radius="0.1075"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="0.035" radius="0.1075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
+      <mass value="0.537" />
+      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
+    </inertial>
+    <inertial> <!-- connect-->
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <mass value="0.623" />
+      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
     </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
@@ -441,10 +478,45 @@
     <child link="FR_calf_rotor" />
   </joint>
   <link name="FR_foot">
-    <inertial>
-      <origin xyz="-0.006511 0 -0.010144" rpy="0 0 0" />
-      <mass value="0.126" />
-      <inertia ixx="3.8E-05" ixy="0" ixz="1.1E-05" iyy="4.1E-05" iyz="0" izz="4.2E-05" />
+    <visual>
+      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+      <cylinder length="0.035" radius="0.1075"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="0.035" radius="0.1075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
+      <mass value="0.537" />
+      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
+    </inertial>
+    <inertial> <!-- connect-->
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <mass value="0.623" />
+      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
     </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
@@ -612,10 +684,45 @@
     <child link="RL_calf_rotor" />
   </joint>
   <link name="RL_foot">
-    <inertial>
-      <origin xyz="-0.006511 0 -0.010144" rpy="0 0 0" />
-      <mass value="0.126" />
-      <inertia ixx="3.8E-05" ixy="0" ixz="1.1E-05" iyy="4.1E-05" iyz="0" izz="4.2E-05" />
+    <visual>
+      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+      <cylinder length="0.035" radius="0.1075"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="0.035" radius="0.1075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 0.055 -0.024" rpy="1.57 0 0" />
+      <mass value="0.537" />
+      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
+    </inertial>
+    <inertial> <!-- connect-->
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <mass value="0.623" />
+      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
     </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
@@ -783,10 +890,45 @@
     <child link="RR_calf_rotor" />
   </joint>
   <link name="RR_foot">
-    <inertial>
-      <origin xyz="-0.006511 0 -0.010144" rpy="0 0 0" />
-      <mass value="0.126" />
-      <inertia ixx="3.8E-05" ixy="0" ixz="1.1E-05" iyy="4.1E-05" iyz="0" izz="4.2E-05" />
+    <visual>
+      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+      <cylinder length="0.035" radius="0.1075"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
+      <geometry>
+        <cylinder length="0.035" radius="0.1075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <geometry>
+        <box size="0.07 0.065 0.035" />
+      </geometry>
+    </collision>
+    <inertial> <!-- wheel-->
+      <origin xyz="-0.0236 -0.055 -0.024" rpy="1.57 0 0" />
+      <mass value="0.537" />
+      <inertia ixx="0.001562" ixy="0" ixz="0" iyy="0.00302" iyz="0" izz="0.001562" />
+    </inertial>
+    <inertial> <!-- connect-->
+      <origin xyz="-0.0095 0 -0.01" rpy="0 0.7 0" />
+      <mass value="0.623" />
+      <inertia ixx="0.000505" ixy="0" ixz="0" iyy="0.000593" iyz="0" izz="0.000474" />
     </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="1.57 0 0" />
