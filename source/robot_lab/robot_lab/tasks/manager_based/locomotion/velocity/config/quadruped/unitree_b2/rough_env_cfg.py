@@ -14,7 +14,7 @@ from robot_lab.assets.unitree import UNITREE_B2_CFG  # isort: skip
 @configclass
 class UnitreeB2RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
     base_link_name = "base_link"
-    foot_link_name = ".*_foot"
+    foot_link_name = ".*_wheel"
     # fmt: off
     joint_names = [
         "FR_hip_joint", "FR_thigh_joint", "FR_calf_joint",
@@ -83,12 +83,12 @@ class UnitreeB2RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
 
         # Root penalties
         self.rewards.lin_vel_z_l2.weight = -2.0
-        self.rewards.ang_vel_xy_l2.weight = -0.05
+        self.rewards.ang_vel_xy_l2.weight = 0
         self.rewards.flat_orientation_l2.weight = 0
         self.rewards.base_height_l2.weight = 0
-        self.rewards.base_height_l2.params["target_height"] = 0.53
+        self.rewards.base_height_l2.params["target_height"] = 0.63
         self.rewards.base_height_l2.params["asset_cfg"].body_names = [self.base_link_name]
-        self.rewards.body_lin_acc_l2.weight = -1.0
+        self.rewards.body_lin_acc_l2.weight = -0.1
         self.rewards.body_lin_acc_l2.params["asset_cfg"].body_names = [self.base_link_name]
 
         # Joint penalties
@@ -98,7 +98,7 @@ class UnitreeB2RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         # self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_hip_l1", -0.2, [".*_hip_joint"])
         self.rewards.joint_pos_limits.weight = -5.0
         self.rewards.joint_vel_limits.weight = 0
-        self.rewards.joint_power.weight = -1e-5
+        self.rewards.joint_power.weight = -1e-6
         self.rewards.stand_still.weight = -5.0
         self.rewards.joint_pos_penalty.weight = -1.0
         self.rewards.joint_mirror.weight = -0.05
@@ -136,7 +136,7 @@ class UnitreeB2RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.feet_height.weight = 0
         self.rewards.feet_height.params["target_height"] = 0.05
         self.rewards.feet_height.params["asset_cfg"].body_names = [self.foot_link_name]
-        self.rewards.feet_height_body.weight = -5.0
+        self.rewards.feet_height_body.weight = 0.0
         self.rewards.feet_height_body.params["target_height"] = -0.4
         self.rewards.feet_height_body.params["asset_cfg"].body_names = [self.foot_link_name]
         self.rewards.feet_gait.weight = 0
